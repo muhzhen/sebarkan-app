@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sebarkan - App</title>
+    <link rel="stylesheet" type="text/css" href="{{ asset('hlogin/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('hlogin/css/fontawesome-all.min.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('hlogin/css/iofrm-style.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ asset('hlogin/css/iofrm-theme11.css') }}">
+</head>
+<body>
+    <div class="form-body">
+        <div class="row">
+            <div class="form-holder">
+                <div class="form-content">
+                    <div class="form-items">
+                        <div class="website-logo-inside">
+                            <a href="index.html">
+                                <div class="logo">
+                                    <img class="logo-size" src="images/logo-light.svg" alt="">
+                                </div>
+                            </a>
+                        </div>
+                        <h3>Selesaikan dan Pecahkan Secepatnya!.</h3>
+                        <p>Mudahkan Penyebaran Undangan <br> dan Bantu Jutaan Orang.</p>
+                        <div class="page-links">
+                            <!-- <a href="login10.html" class="active">Login</a><a href="register10.html">Register</a> -->
+                        </div>
+                        <form method="POST" action="{{ route('login') }}">
+                        @csrf
+                            <input class="form-control @error('email') is-invalid @enderror" id="email" type="email" name="email" placeholder="E-mail Address" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                @error('email')
+                                    <span style="color:white" class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                                
+                              
+                                    <input class="form-control  @error('password') is-invalid @enderror" id="password" type="password" name="password" placeholder="Password" required autocomplete="current-password">
+                  
+                            <div class="form-button">
+                                <button id="submit" type="submit" class="ibtn"> {{ __('Login') }}</button>
+                                
+                                @if (Route::has('password.request'))
+                                <a href="{{ route('password.request') }}">
+                                        {{ __('Forgot Your Password?') }}
+                                </a>
+                                @endif
+                            </div>
+                        </form>
+                        <div class="other-links">
+                            <!-- <span>Or login with</span><a href="#">Facebook</a><a href="#">Google</a><a href="#">Linkedin</a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+<script src="{{ asset('hlogin/js/jquery.min.js') }}"></script>
+<script src="{{ asset('hlogin/js/popper.min.js') }}"></script>
+<script src="{{ asset('hlogin/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('hlogin/js/main.js') }}"></script>
+</body>
+</html>
