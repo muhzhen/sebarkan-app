@@ -136,11 +136,8 @@
        
    </script>
 
-    <script src="{{asset('clipboard.js-master/dist/clipboard.min.js')}}"></script>
 
-    <script type="text/javascript">
-        var Clipboard = new ClipboardJS('.btn');
-    </script>
+
 
 <script>
 function copyMessage() {
